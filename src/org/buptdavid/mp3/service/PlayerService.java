@@ -178,8 +178,16 @@ public class PlayerService extends Service {
 				intent.putExtra("lrcMessage",message);
 				
 				sendBroadcast(intent);
-				nextTimeMill = (Long)times.poll();
-				message = (String)messages.poll();
+				Object timeObject = times.poll();
+				if(timeObject != null){
+					nextTimeMill = (Long)timeObject;
+				}
+				
+				Object messageObject = messages.poll();
+				if(messageObject != null){
+					message = (String)messageObject;
+				}
+				
 			}
 			currentTimeMill = currentTimeMill + 10;
 			handler.postDelayed(updateTimeCallback, 10);
