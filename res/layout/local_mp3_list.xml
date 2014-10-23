@@ -15,7 +15,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:drawSelectorOnTop="false"
-            android:scrollbars="vertical">
+            android:scrollbars="vertical"
+            android:layoutAnimation="@anim/list_mp3_layout">
         </ListView>
     </LinearLayout>
 

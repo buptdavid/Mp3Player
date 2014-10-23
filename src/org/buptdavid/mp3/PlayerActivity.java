@@ -15,10 +15,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
-import android.view.animation.ScaleAnimation;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -85,7 +82,7 @@ public class PlayerActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			// 设置动画效果
-			startButton.startAnimation(AnimationUtils.loadAnimation(PlayerActivity.this, R.anim.scale));
+			startButton.startAnimation(AnimationUtils.loadAnimation(PlayerActivity.this, R.anim.scale_button));
 			
 			startService(AppConstant.PlayerMsg.PLAY_MSG);
 		}
@@ -102,7 +99,7 @@ public class PlayerActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			// 设置动画效果
-			pauseButton.startAnimation(AnimationUtils.loadAnimation(PlayerActivity.this, R.anim.scale));
+			pauseButton.startAnimation(AnimationUtils.loadAnimation(PlayerActivity.this, R.anim.scale_button));
 			
 			startService(AppConstant.PlayerMsg.PAUSE_MSG);
 		}
@@ -119,7 +116,7 @@ public class PlayerActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			// 设置动画效果
-			stopButton.startAnimation(AnimationUtils.loadAnimation(PlayerActivity.this, R.anim.scale));
+			stopButton.startAnimation(AnimationUtils.loadAnimation(PlayerActivity.this, R.anim.scale_button));
 			
 			startService(AppConstant.PlayerMsg.STOP_MSG);
 		}
