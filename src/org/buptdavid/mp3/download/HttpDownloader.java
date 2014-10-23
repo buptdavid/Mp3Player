@@ -34,7 +34,7 @@ public class HttpDownloader {
 			URL url = new URL(urlStr);
 			HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
 			InputStream inputStream = urlConn.getInputStream();
-			buffer = new BufferedReader(new InputStreamReader(inputStream));
+			buffer = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
 			while ((line = buffer.readLine()) != null) {
 				sb.append(line);
 			}

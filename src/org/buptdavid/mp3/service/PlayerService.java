@@ -76,7 +76,7 @@ public class PlayerService extends Service {
 		if(!isPlaying){
 			String path = getMp3Path(mp3Info);
 			mediaPlayer = MediaPlayer.create(this, Uri.parse("file://" + path));
-			mediaPlayer.setLooping(false);
+			mediaPlayer.setLooping(true);
 			mediaPlayer.start();
 			prepareLrc(mp3Info.getLrcName());
 			handler.postDelayed(updateTimeCallback,5);

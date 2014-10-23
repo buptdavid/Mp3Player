@@ -107,16 +107,18 @@ public class FileUtils {
 		List<Mp3Info> mp3Infos = new ArrayList<Mp3Info>();
 		File file = new File(SDCardRoot + File.separator + path);
 		
-		File[]  files = file.listFiles();
-		for(int i = 0; i < files.length; i++){
-			if(files[i].getName().endsWith("mp3")){
-				Mp3Info mp3Info = new Mp3Info();
-				String name = files[i].getName();
-				mp3Info.setMp3File(name);
-				mp3Info.setMp3Size(String.valueOf(files[i].length()));
-				mp3Info.setLrcName(name.substring(0, name.indexOf(".") + 1) + "lrc");
-				
-				mp3Infos.add(mp3Info);
+		if(file.exists()){
+			File[]  files = file.listFiles();
+			for(int i = 0; i < files.length; i++){
+				if(files[i].getName().endsWith("mp3")){
+					Mp3Info mp3Info = new Mp3Info();
+					String name = files[i].getName();
+					mp3Info.setMp3File(name);
+					mp3Info.setMp3Size(String.valueOf(files[i].length()));
+					mp3Info.setLrcName(name.substring(0, name.indexOf(".") + 1) + "lrc");
+					
+					mp3Infos.add(mp3Info);
+				}
 			}
 		}
 		

@@ -3,6 +3,7 @@
  */
 package org.buptdavid.mp3;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -37,7 +38,7 @@ public class LocalMp3ListActivity extends ListActivity {
 	@Override
 	protected void onResume() {
 		FileUtils fileUtils = new FileUtils();
-		mp3Infos = fileUtils.getMp3Files("mp3/");
+		mp3Infos = fileUtils.getMp3Files(AppConstant.LOCAL_MP3_FORDER + File.separator);
 		
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 		

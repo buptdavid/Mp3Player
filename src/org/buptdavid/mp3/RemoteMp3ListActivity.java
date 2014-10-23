@@ -109,6 +109,7 @@ public class RemoteMp3ListActivity extends ListActivity {
 				HashMap<String ,String> map = new HashMap<String, String>();
 				map.put("mp3_file", mp3Info.getMp3File());
 				map.put("mp3_size", mp3Info.getMp3Size());
+				map.put("mp3_name", mp3Info.getMp3Name());
 				list.add(map);
 			}
 			
@@ -126,20 +127,11 @@ public class RemoteMp3ListActivity extends ListActivity {
 		@Override
 		public void run(){
 			Message msg = handler.obtainMessage();
-			msg.obj = downloadXML("http://9.123.154.208:8080/mp3/resources.xml");
+			msg.obj = HttpDownloader.download("http://9.123.154.208:8080/mp3/resources.xml");
 			handler.sendMessage(msg);
 		}
 	}
 	
-	/**
-	 * download xml from server
-	 * @return
-	 */
-	private String downloadXML(String urlStr){
-		HttpDownloader httpDownloader = new HttpDownloader();
-		String result = httpDownloader.download(urlStr);
-		return result;
-	}
 	
 	/**
 	 * parse XML String
