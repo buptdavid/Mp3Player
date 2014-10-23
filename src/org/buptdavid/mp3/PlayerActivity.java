@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -84,7 +85,7 @@ public class PlayerActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			// 设置动画效果
-			startButton.startAnimation(getScaleAnimationSet());
+			startButton.startAnimation(AnimationUtils.loadAnimation(PlayerActivity.this, R.anim.scale));
 			
 			startService(AppConstant.PlayerMsg.PLAY_MSG);
 		}
@@ -101,7 +102,7 @@ public class PlayerActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			// 设置动画效果
-			pauseButton.startAnimation(getScaleAnimationSet());
+			pauseButton.startAnimation(AnimationUtils.loadAnimation(PlayerActivity.this, R.anim.scale));
 			
 			startService(AppConstant.PlayerMsg.PAUSE_MSG);
 		}
@@ -118,7 +119,7 @@ public class PlayerActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			// 设置动画效果
-			stopButton.startAnimation(getScaleAnimationSet());
+			stopButton.startAnimation(AnimationUtils.loadAnimation(PlayerActivity.this, R.anim.scale));
 			
 			startService(AppConstant.PlayerMsg.STOP_MSG);
 		}
@@ -163,18 +164,4 @@ public class PlayerActivity extends Activity {
 		}
     }
 
-	/**
-	 * 设置Scale动画效果
-	 * @return AnimationSet对象
-	 */
-	private AnimationSet getScaleAnimationSet(){
-		AnimationSet animationSet = new AnimationSet(true);
-		ScaleAnimation scaleAnimation = new ScaleAnimation(1, 1.1f, 1, 1.1f,
-				Animation.RELATIVE_TO_SELF, 0.5f,
-				Animation.RELATIVE_TO_SELF, 0.5f);
-		animationSet.addAnimation(scaleAnimation);
-		animationSet.setFillBefore(true);
-		animationSet.setDuration(150);
-		return animationSet;
-	}
 }

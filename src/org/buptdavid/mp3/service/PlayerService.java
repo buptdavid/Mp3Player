@@ -94,13 +94,13 @@ public class PlayerService extends Service {
 		if(isPlaying){
 			mediaPlayer.pause();
 			handler.removeCallbacks(updateTimeCallback);
-			pauseTimeMills=System.currentTimeMillis();
+			pauseTimeMills = System.currentTimeMillis();
 		}else {
 			mediaPlayer.start();
 			handler.postDelayed(updateTimeCallback,5);
-			begin=System.currentTimeMillis()-pauseTimeMills+begin;
+			begin=System.currentTimeMillis() - pauseTimeMills + begin;
 		}
-		isPlaying=isPlaying?false:true;
+		isPlaying = isPlaying?false:true;
 	}
 	
 	/**
